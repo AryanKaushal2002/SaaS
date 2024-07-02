@@ -54,7 +54,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", cast=bool)
 
-print("DEBUG", DEBUG, type(DEBUG))
+# print("DEBUG", DEBUG, type(DEBUG))
 
 ALLOWED_HOSTS = [
     ".railway.app" # https://saas.prod.railway.app
@@ -64,6 +64,11 @@ if DEBUG:
         "127.0.0.1",
         "localhost"
     ]
+    
+CSRF_TRUSTED_ORIGINS = [
+    'https://saas-production-bb96.up.railway.app',
+    # Add any other trusted origins if necessary
+]
 
 
 # Application definition
