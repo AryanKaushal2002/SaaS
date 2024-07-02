@@ -4,6 +4,9 @@ from django.shortcuts import render
 from visits.models import PageVisit
 
 def home_view(request, *args, **kwargs):
+    if request.user.is_authenticated:
+        my_title = "Hello " + str(request.user)
+        print(my_title)
     return about_view(request, *args, **kwargs)
 
 
